@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Query } from '@nestjs/common';
 import { TodoService } from './todo.service';
 import { TodoDto } from '../dto/todo.dto';
 import { Todo } from './interfaces/todo.interface';
@@ -13,8 +13,8 @@ export class TodoController {
     }
 
     @Get()
-    async findAll(): Promise<Todo[]> {
-        return this.todoService.findAll();
+    async findAll(@Query() query: any): Promise<Todo[]> {
+        return this.todoService.findAll(query);
     }
 
     @Get(':id')
