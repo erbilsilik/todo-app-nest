@@ -9,8 +9,8 @@ export class TodoService {
     constructor(@Inject('TODO_MODEL') private readonly todoModel: Model<Todo>) {}
 
     async create(todoDto: TodoDto): Promise<Todo> {
-        const createdArticle = new this.todoModel(todoDto);
-        return await createdArticle.save();
+        const createdTodo = new this.todoModel(todoDto);
+        return await createdTodo.save();
     }
 
     async findAll(): Promise<Todo[]> {
@@ -22,7 +22,7 @@ export class TodoService {
     }
 
     async update(id: string, todoDto: TodoDto): Promise<Todo> {
-        return await this.todoModel.findByIdAndUpdate(id, todoDto);
+        return await this.todoModel.findByIdAndUpdate(id, todoDto, {new: true});
     }
 
     async delete(id: string, todoDto: TodoDto): Promise<Todo> {
