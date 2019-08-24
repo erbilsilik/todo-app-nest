@@ -19,41 +19,26 @@ export class TodoController {
 
     @Post()
     async create(@Body() todoDto: TodoDto) {
-        return {
-            data: await this.todoService.create(todoDto),
-            statusCode: HttpStatus.CREATED,
-        };
+        return await this.todoService.create(todoDto);
     }
 
     @Get()
-    async findAll(@Query() query: string): Promise<any> {
-        return {
-            data: await this.todoService.findAll(query),
-            statusCode: HttpStatus.OK,
-        };
+    async findAll(@Query() query: string): Promise<Todo[]> {
+        return await this.todoService.findAll(query);
     }
 
     @Get(':id')
     async find(@Param('id') id: string) {
-        return {
-            data: await this.todoService.find(id),
-            statusCode: HttpStatus.OK,
-        };
+        return await this.todoService.find(id);
     }
 
     @Put(':id')
     async update(@Param('id') id: string, @Body() todoDto: TodoDto) {
-        return {
-            data: await this.todoService.update(id, todoDto),
-            statusCode: HttpStatus.OK,
-        };
+        return await this.todoService.update(id, todoDto);
     }
 
     @Delete(':id')
     async delete(@Param('id') id: string) {
-        return {
-            data: await this.todoService.delete(id),
-            statusCode: HttpStatus.OK,
-        };
+        return await this.todoService.delete(id);
     }
 }
