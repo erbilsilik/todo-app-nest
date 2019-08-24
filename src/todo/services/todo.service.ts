@@ -1,8 +1,8 @@
 import { HttpException, HttpStatus, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { Todo } from './interfaces/todo.interface';
-import { TodoDto } from '../dto/todo.dto';
-import { Status } from './schemas/todo.schemas';
+import { Todo } from '../interfaces/todo.interface';
+import { TodoDto } from '../../dto/todo.dto';
+import { Status } from '../schemas/todo.schemas';
 
 @Injectable()
 export class TodoService {
@@ -14,7 +14,7 @@ export class TodoService {
         return await createdTodo.save();
     }
 
-    async findAll(query: any): Promise<Todo[]> {
+    async findAll(query: any = ''): Promise<Todo[]> {
         const limit = query.limit && query.limit <= 100 ? parseInt(query.limit, 10) : 10;
         let page = 0;
         if (query) {
@@ -39,7 +39,7 @@ export class TodoService {
         return await this.todoModel.findByIdAndUpdate(id, todoDto, {new: true});
     }
 
-    async delete(id: string, todoDto: TodoDto): Promise<Todo> {
+    async delete(id: string): Promise<Todo> {
         return await this.todoModel.findByIdAndRemove(id);
     }
 }

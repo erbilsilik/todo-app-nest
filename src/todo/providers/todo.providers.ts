@@ -1,5 +1,5 @@
 import { Connection } from 'mongoose';
-import { TodoSchema } from './schemas/todo.schemas';
+import { TodoSchema } from '../schemas/todo.schemas';
 
 export const todoProviders = [
     {

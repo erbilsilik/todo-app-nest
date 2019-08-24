@@ -24,6 +24,7 @@
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
+    "async": "^3.1.0",
     "cache-manager": "^2.10.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.10.0",
@@ -33,7 +34,8 @@
     "rxjs": "^6.3.3"
   },
   "devDependencies": {
-    "@nestjs/testing": "^6.0.0",
+    "@compodoc/compodoc": "^1.1.10",
+    "@nestjs/testing": "^6.5.3",
     "@types/dotenv": "^6.1.1",
     "@types/express": "4.16.1",
     "@types/hapi__joi": "^15.0.3",
