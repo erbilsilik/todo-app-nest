@@ -1,7 +1,7 @@
 import { TodoService } from '../todo/services/todo.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { TodoFactory } from './factories/todo';
-jest.mock('../../todo/services/todo.service');
+jest.mock('../todo/services/todo.service');
 
 describe('TodoService', () => {
     let todoService: TodoService;
