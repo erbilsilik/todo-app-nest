@@ -1,12 +1,13 @@
 import * as mongoose from 'mongoose';
 
 export enum Status {
-    INCOMPLETE = 'incomplete',
-    COMPLETED = 'completed',
+    INCOMPLETE = 'Incomplete',
+    COMPLETED = 'Completed',
 }
 
 export const TodoSchema = new mongoose.Schema({
-    title: { type: String, required: true, min: [3] },
+    summary: {type: String, required: true, min: [3]},
+    description: {type: String, required: true, min: [20], max: [500]},
     status: { type: Status, default: Status.INCOMPLETE },
 }, {
     timestamps: true,

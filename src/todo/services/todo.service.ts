@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { Todo } from '../interfaces/todo.interface';
 import { TodoDto } from '../../dto/todo.dto';
@@ -36,7 +36,7 @@ export class TodoService {
     }
 
     async update(id: string, todoDto: TodoDto): Promise<Todo> {
-        return await this.todoModel.findByIdAndUpdate(id, todoDto, {new: true});
+        return await this.todoModel.findByIdAndUpdate(id, todoDto, {upsert: true, new: true});
     }
 
     async delete(id: string): Promise<Todo> {
