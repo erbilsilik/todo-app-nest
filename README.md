@@ -1,11 +1,13 @@
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Installation
 
 ```bash
 $ npm install
+```
+
+## Generate and serve compodoc documentation 
+
+```bash
+$ npx compodoc -p tsconfig.json -s
 ```
 
 ## Running the app
