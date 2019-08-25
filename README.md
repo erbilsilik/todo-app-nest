@@ -16,6 +16,7 @@ $ npm run start
 
 # watch mode
 $ npm run webpack
+```
 
 ## Test
 
